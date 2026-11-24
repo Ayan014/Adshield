@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  :root{color-scheme:light dark;--bg:#fff;--fg:#1f1f1f;--mut:#6b6b6b;--acc:#1a73e8;--card:#f4f6f9}
+  @media (prefers-color-scheme:dark){:root{--bg:#202124;--fg:#e8eaed;--mut:#9aa0a6;--acc:#8ab4f8;--card:#2b2c30}}
+  body{margin:0;width:300px;font:14px system-ui,sans-serif;background:var(--bg);color:var(--fg)}
+  header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px}
+  h1{font-size:16px;margin:0}
+  .card{background:var(--card);margin:0 12px 12px;border-radius:12px;padding:14px;text-align:center}
+  .big{font-size:34px;font-weight:700;color:var(--acc)}
+  .mut{color:var(--mut);font-size:12px}
+  .row{display:flex;justify-content:space-between;align-items:center;margin:0 16px 14px}
+  button{width:calc(100% - 24px);margin:0 12px 14px;padding:10px;border:0;border-radius:10px;background:var(--acc);color:#fff;font-size:14px;cursor:pointer}
+  button.sec{background:var(--card);color:var(--fg)}
+  .sw{position:relative;width:44px;height:24px}
+  .sw input{opacity:0;width:0;height:0}
+  .sl{position:absolute;inset:0;background:#9aa0a6;border-radius:24px;transition:.2s;cursor:pointer}
+  .sl:before{content:"";position:absolute;height:18px;width:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+  input:checked+.sl{background:var(--acc)}input:checked+.sl:before{transform:translateX(20px)}
+</style></head>
+<body>
+  <header><h1>🛡️ AdShield</h1>
+    <label class="sw"><input type="checkbox" id="master"><span class="sl"></span></label></header>
+  <div class="card"><div class="big" id="count">0</div><div class="mut">ads blocked on this page</div></div>
+  <div class="row"><span id="host" class="mut"></span></div>
+  <button id="pause">Pause on this site</button>
+  <button id="reload" class="sec">Reload page</button>
+  <script src="popup.js"></script>
+</body></html>
